@@ -1,9 +1,11 @@
 import React from 'react';
+import { Transition } from '@headlessui/react';
 function Home() {
     const [darkToggle, setDarkToggle] = React.useState(false);
+    const [isOpen, setOpen] = React.useState(false);
     return (
         <>
-            <div className={`h-screen w-full flex items-center justify-center bg-gray-300 flex-col ${darkToggle && 'dark'}`}>
+            {/* <div className={`h-screen w-full flex items-center justify-center bg-[#b5e908] flex-col ${darkToggle && 'dark'}`}>
                 <label className="toggleDarkBtn">
                     <input type="checkbox" onClick={() => setDarkToggle(!darkToggle)} />
                     <span className="slideBtnTg round"></span>
@@ -29,15 +31,37 @@ function Home() {
                         </span>
                     </div>
                 </div>
-            </div>
-            <div className="flex h-64">
+            </div> */}
+            {/* <div className="flex h-64 ">
                 <div className="w-1/2 bg-grey-500"></div>
                 <div className="w-1/2 bg-pink-500"></div>
-            </div>
-            <div className="flex h-64 flex-col">
+            </div> */}
+            {/* <div className="flex h-64 flex-col">
                 <div className="h-1/3 bg-grey-500"></div>
                 <div className="h-1/3 bg-pink-500"></div>
                 <div className="h-1/3 bg-grey-500"></div>
+            </div> */}
+            <div className="card relative bg-slate-900 text-slate-50 flex justify-center filter-grayscale">
+                <button
+                    type="button"
+                    onClick={() => {
+                        setOpen((x) => !x);
+                    }}
+                >
+                    Dropdown
+                </button>
+                <Transition
+                    show={isOpen}
+                    enter="transition-opacity duration-75"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="transition-opacity duration-150"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                    className="origin-bottom-right absolute right-[calc(50% - 7rem)] bottom-[-150%] mt-2 w-56 rounded-md shadow-lg "
+                >
+                    <div className="rounded-md bg-white shadow-xs text-blue-700 p-10">Hello</div>
+                </Transition>
             </div>
         </>
     );
