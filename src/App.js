@@ -42,26 +42,15 @@ function Home() {
                 <div className="h-1/3 bg-grey-500"></div>
             </div> */}
             <div className="card relative bg-slate-900 text-slate-50 flex justify-center ">
-                <Tab.Group>
-                    <Tab
-                        type="button"
-                        className="bg-red-400"
-                        onClick={() => {
-                            setOpen((x) => !x);
-                        }}
-                    >
-                        Dropdown
-                    </Tab>
-                    <Tab
-                        type="button"
-                        className="bg-red-400"
-                        onClick={() => {
-                            setOpen((x) => !x);
-                        }}
-                    >
-                        Dropdown
-                    </Tab>
-                </Tab.Group>
+                <button
+                    type="button"
+                    className="bg-red-400 rounded-lg px-2"
+                    onClick={() => {
+                        setOpen((x) => !x);
+                    }}
+                >
+                    Dropdown
+                </button>
                 <Transition
                     show={isOpen}
                     enter="transition-opacity duration-75"
