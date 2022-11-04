@@ -1,5 +1,5 @@
 import React from 'react';
-import { Transition } from '@headlessui/react';
+import { Transition, Tab } from '@headlessui/react';
 function Home() {
     const [darkToggle, setDarkToggle] = React.useState(false);
     const [isOpen, setOpen] = React.useState(false);
@@ -41,15 +41,27 @@ function Home() {
                 <div className="h-1/3 bg-pink-500"></div>
                 <div className="h-1/3 bg-grey-500"></div>
             </div> */}
-            <div className="card relative bg-slate-900 text-slate-50 flex justify-center filter-grayscale">
-                <button
-                    type="button"
-                    onClick={() => {
-                        setOpen((x) => !x);
-                    }}
-                >
-                    Dropdown
-                </button>
+            <div className="card relative bg-slate-900 text-slate-50 flex justify-center ">
+                <Tab.Group>
+                    <Tab
+                        type="button"
+                        className="bg-red-400"
+                        onClick={() => {
+                            setOpen((x) => !x);
+                        }}
+                    >
+                        Dropdown
+                    </Tab>
+                    <Tab
+                        type="button"
+                        className="bg-red-400"
+                        onClick={() => {
+                            setOpen((x) => !x);
+                        }}
+                    >
+                        Dropdown
+                    </Tab>
+                </Tab.Group>
                 <Transition
                     show={isOpen}
                     enter="transition-opacity duration-75"
